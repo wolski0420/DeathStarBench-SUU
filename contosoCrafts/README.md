@@ -111,3 +111,24 @@ Now you can run some of the example tests:
 ```bash
 ./wrk -t <num-threads> -c <num-conns> -d <duration> -L -s ./scripts/contosoCrafts/mix_scenario.lua http://localhost:9090/Products/ -R <reqs-per-sec>
 ```
+
+
+#### Shell script
+
+We have also prepared a simple shell script which runs a lot of tests
+for one endpoint with different configuration. We are testing here:
+
+- GET /Products
+
+Which, in general, should return the same result. The only difference
+we can see is in performance.
+
+To run this script, just move to the directory, where the benchmarking
+tool is and run:
+
+```bash
+cd wrk2
+./test_runner.sh
+```
+
+On linux, it may be necessary to run last command with ```sudo```.
