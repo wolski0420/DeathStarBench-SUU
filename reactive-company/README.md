@@ -97,6 +97,33 @@ Now you can run some of the example tests:
 ./wrk -t <num-threads> -c <num-conns> -d <duration> -L -s ./scripts/reactive-company/get_all_projects.lua http://localhost:8080/projects/ -R <reqs-per-sec>
 ```
 
+4. Getting all blog posts from stream endpoint
+
+```bash
+./wrk -t <num-threads> -c <num-conns> -d <duration> -L -s ./scripts/reactive-company/get_all_projects_stream.lua http://localhost:8080/stream/ -R <reqs-per-sec>
+```
+
+#### Shell script
+
+We have also prepared a simple shell script which runs a lot of tests 
+for two endpoints with different configuration. We are testing here:
+
+- GET /blogposts
+- GET /stream
+
+Which, in general, should return the same result. The only difference
+we can see is in performance.
+
+To run this script, just move to the directory, where the benchmarking 
+tool is and run:
+
+```bash
+cd wrk2
+./test_runner.sh
+```
+
+On linux, it may be necessary to run last command with ```sudo```.
+
 #### Stopping service
 
 Exiting this application is not as intuitive as in other services,
