@@ -54,11 +54,15 @@ vtune -report summary -result-dir <generated dir with results> -format=csv -repo
 docker cp <container name/id>:<path to results file in container> <output path on host>
 ```
 
-* Delete not needed data and collect all data to one file with prepared python script\
+* Delete not needed data and collect all data to one file with prepared python script
 
-@TODO Sebastian
+```bash
+python generate_results.py <absoulute directory path with csv files generated with vtune> <result file> 
+```
+NOTE: 
+The above script generates one CSV file that displays 5 metrics (Bad Speculation, Front-End bound, Back-End bound, Retiring, and IPC) for every microservice that vTune report was generated.
+That script was created to select the data necessary to generate figure 10 from the [DeathStarBench paper](https://www.csl.cornell.edu/~delimitrou/papers/2019.asplos.microservices.pdf).
 
-Output file contains cycle breakdowns and IPC analisys for each microserivce.
 
 ### Alternate method
 
