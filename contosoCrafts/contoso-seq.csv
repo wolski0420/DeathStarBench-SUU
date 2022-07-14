@@ -1,0 +1,106 @@
+Hierarchy Level	Metric Name	Metric Value
+0	Elapsed Time	59.997809
+1	Clockticks	519657500000
+1	Instructions Retired	324887500000
+1	CPI Rate	1.599500
+1	Retiring	18.2
+2	Light Operations	13.9
+3	FP Arithmetic	0.1
+4	FP x87	0.0
+4	FP Scalar	0.1
+4	FP Vector	0.0
+3	Memory Operations	6.7
+3	Fused Instructions	1.4
+3	Non Fused Branches	1.1
+3	Nop Instructions	0.2
+3	Other	4.3
+2	Heavy Operations	4.4
+3	Microcode Sequencer	2.9
+4	Assists	0.0
+4	CISC	2.9
+1	Front-End Bound	29.1
+2	Front-End Latency	46.6
+3	ICache Misses	7.0
+3	ITLB Overhead	5.6
+3	Branch Resteers	25.0
+4	Mispredicts Resteers	7.8
+4	Clears Resteers	0.1
+4	Unknown Branches	17.1
+3	DSB Switches	1.5
+3	Length Changing Prefixes	0.1
+3	MS Switches	2.9
+2	Front-End Bandwidth	0.0
+3	Front-End Bandwidth MITE	9.6
+3	Front-End Bandwidth DSB	1.2
+3	(Info) DSB Coverage	19.6
+3	(Info) DSB Misses Cost	0.0
+1	Bad Speculation	6.8
+2	Branch Mispredict	6.7
+2	Machine Clears	0.1
+1	Back-End Bound	45.9
+2	Memory Bound	17.8
+3	L1 Bound	11.1
+4	DTLB Overhead	100.0
+5	Load STLB Hit	100.0
+5	Load STLB Miss	5.2
+4	Loads Blocked by Store Forwarding	1.2
+4	Lock Latency	0.0
+4	Split Loads	0.1
+4	4K Aliasing	0.2
+4	FB Full	8.6
+3	L2 Bound	1.5
+3	L3 Bound	9.8
+4	Contested Accesses	1.1
+4	Data Sharing	0.4
+4	L3 Latency	4.2
+4	SQ Full	0.1
+3	DRAM Bound	9.1
+4	Memory Bandwidth	11.6
+4	Memory Latency	29.9
+3	Store Bound	0.4
+4	Store Latency	6.3
+4	False Sharing	0.1
+4	Split Stores	0.0
+4	DTLB Store Overhead	1.8
+5	Store STLB Hit	1.1
+5	Store STLB Hit	0.7
+2	Core Bound	28.1
+3	Divider	0.2
+3	Port Utilization	50.6
+4	Cycles of 0 Ports Utilized	35.7
+5	Serializing Operations	14.4
+5	Mixing Vectors	0.0
+4	Cycles of 1 Port Utilized	12.9
+4	Cycles of 2 Ports Utilized	11.0
+4	Cycles of 3+ Ports Utilized	17.0
+5	ALU Operation Utilization	13.8
+6	Port 0	10.0
+6	Port 1	10.7
+6	Port 5	11.2
+6	Port 6	23.4
+5	Load Operation Utilization	12.4
+6	Port 2	15.6
+6	Port 3	16.4
+5	Store Operation Utilization	15.8
+6	Port 4	15.8
+6	Port 7	8.5
+4	Vector Capacity Usage (FPU)	18.3
+1	Average CPU Frequency	2896355486.657859
+1	Total Thread Count	599
+1	Paused Time	0.0
+0	Effective CPU Utilization	74.2
+1	Average Effective CPU Utilization	2.970 out of 4
+0	Collection and Platform Info	
+1	Operating System	5.13.0-52-generic DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION="Ubuntu 20.04.4 LTS"
+1	Computer Name	d61b81b68c07
+1	Result Size	243337523
+1	Collection start time	07:20:28 14/07/2022 UTC
+1	Collection stop time	07:21:28 14/07/2022 UTC
+1	Collector Type	Driverless Perf system-wide sampling
+1	CPU	
+2	Name	Intel(R) Processor code named Kabylake
+2	Frequency	2496004843
+2	Logical CPU Count	4
+2	Cache Allocation Technology	
+3	Level 2 capability	not detected
+3	Level 3 capability	not detected
