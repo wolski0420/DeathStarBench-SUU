@@ -18,24 +18,65 @@ Open-source benchmark suite for cloud microservices. DeathStarBench includes fiv
 To collect data about cycle breakdown and IPC for each microservice in End-to-end Service docker image of intel vtune is needed. 
 
 Get docker image from https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler-download.html?operatingsystem=linux&distributions=docker \
-or by command docker pull intel/vtune-profiler 
+or by command: 
+
+```bash
+docker pull intel/oneapi-vtune:devel-ubuntu20.04
+```
+
+NOTE: it can be necessary to run this command with ```sudo```.
 
 ### Step by step
 
-* Start docker container with vtune \
-sudo docker run --pid=host --cap-add=SYS_ADMIN --cap-add=SYS_PTRACE -it --rm \<vtune image id>
-* Start collecting data from microservice from vtune CLI with command \
-vtune -collect systerm-overview sampling-mode=hw -target-process \<port of microservice> -d \<duration in sec>
-* Generate need data in csv format from vtune CLI with command\ 
-vtune -report top-down -result-dir \<TODO skad> -format=csv -report-output \<path to output file>
-* Copy output to host with\
-docker cp \<Container:path to results> \<output path>
+* Start docker container with vtune:
+
+```bash
+docker run --pid=host --cap-add=SYS_ADMIN --cap-add=SYS_PTRACE -it --rm <vtune image name/id>
+```
+
+NOTE: it may be necessary to run this command with ```sudo```.
+
+* Start collecting data from microservice from vtune CLI with command
+
+```bash
+vtune -collect uarch-exploration -target-ports=<port of service container to profile> -d \<duration in sec>
+```
+
+* Generate need data in csv format from vtune CLI with command:
+
+```bash
+vtune -report summary -result-dir <generated dir with results> -format=csv -report-output <output path with name>
+```
+
+* Copy output to host with:
+
+```bash
+docker cp <container name/id>:<path to results file in container> <output path on host>
+```
+
 * Delete not needed data and collect all data to one file with prepared python script\
-TODO
+
+@TODO Sebastian
 
 Output file contains cycle breakdowns and IPC analisys for each microserivce.
 
+### Alternate method
 
+You can always run special python script to automate this process. 
+You only need to do following steps:
+
+1. Run one of prepared applications (this process is described in
+appropriate application README).
+2. Start our workload prepared in wrk2 (this process is also described
+in appropriate application README).
+3. Run our script for automation:
+
+```bash
+./vtune-profiler.sh
+```
+
+After execution, you should be able to see some generated results file
+in csv format. 
 
 ## License & Copyright 
 
