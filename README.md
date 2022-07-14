@@ -57,10 +57,10 @@ docker cp <container name/id>:<path to results file in container> <output path o
 * Delete not needed data and collect all data to one file with prepared python script
 
 ```bash
-python generate_results.py <absoulute directory path with csv files generated with vtune> <result file> 
+python generate_results.py <absoulute directory path with csv files generated with vtune> results.csv
 ```
 NOTE: 
-The above script generates one CSV file that displays 5 metrics (Bad Speculation, Front-End bound, Back-End bound, Retiring, and IPC) for every microservice that vTune report was generated.
+The above script generates result directory with results.csv file that displays 5 metrics (Bad Speculation, Front-End bound, Back-End bound, Retiring, and IPC) for every microservice that vTune report was generated.
 That script was created to select the data necessary to generate figure 10 from the [DeathStarBench paper](https://www.csl.cornell.edu/~delimitrou/papers/2019.asplos.microservices.pdf).
 
 
