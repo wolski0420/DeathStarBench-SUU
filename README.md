@@ -76,7 +76,7 @@ in appropriate application README).
 3. Run our script for automation:
 
 ```bash
-./vtune-profiler.sh
+python3 vtune-profiler.py <application_name> <docker-compose files ...>
 ```
 
 After execution, you should be able to see some generated results file
