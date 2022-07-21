@@ -2,10 +2,19 @@ import os
 import sys
 import yaml
 
+params = sys.argv
+script_name = "vtune-profiler.py"
 
-# checking number of parameters
-if len(sys.argv) <= 2:
-    raise Exception("Wrong number of parameters. Please provide: python3 <application_name> <docker-compose files ...>")
+# validating parameters
+if script_name in sys.argv:
+    params.remove(script_name)
+
+# checking number of useful parameters
+if len(params) < 2:
+    raise Exception("Wrong number of parameters. Please provide: python3 vtune-profiler.py "
+                    "<application_name> <docker-compose files ...>")
+
+print(f"*** RUNNING VTUNE PROFILER WITH ARGUMENTS: application_name={params[0]} docker-compose_files={params[1:]} ***")
 
 # running container with vtune
 print("*** RUNNING VTUNE CONTAINER ***")
@@ -15,7 +24,7 @@ os.system("docker run --pid=host --cap-add=SYS_ADMIN --cap-add=SYS_PTRACE -it -d
 # reading all applications from docker-compose and their ports
 print("*** TAKING SERVICES WITH PORTS FROM DOCKER-COMPOSES ***")
 filtered_dc = dict()
-for docker_compose_file in sys.argv[2:]:
+for docker_compose_file in params[1:]:
     file = open(docker_compose_file, "r")
     dc = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -35,10 +44,10 @@ for name, port in filtered_dc.items():
 
     print(f"****** VTUNE COLLECT {name=} {port=} ******")
     os.system(f"docker exec vtune-container vtune -report summary -result-dir r{index_str}ue -format=csv "
-              f"-report-output /home/{sys.argv[1]}-{name}.csv")
+              f"-report-output /home/{params[0]}-{name}.csv")
 
     print(f"****** CP RESULTS {name=} {port=} ******")
-    os.system(f"docker cp vtune-container:/home/{sys.argv[1]}-{name}.csv .")
+    os.system(f"docker cp vtune-container:/home/{params[0]}-{name}.csv .")
 
     index += 1
 
